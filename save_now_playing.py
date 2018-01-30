@@ -68,21 +68,6 @@ while True:
             # Reauth and get the next now playing
             sp = authorize_api(username)
             continue
-        if e.http_status == '429':  # Too Many Requests
-            # We're hitting the API too fast. The response should include a "Retry-After" Header
-            if e.headers and e.headers["Retry-After"]:
-                secs = float(e.headers["Retry-After"])
-                print "[%.2fs] Too Many API Requests, waiting %.1fs before continuing" % \
-                        (time.time()-start_time, secs)
-                # Wait X Seconds before trying again
-                time.sleep(secs - (time.time() - start_time) % secs)
-                continue
-            else:
-                # Wait 30 secs
-                print "[%.2fs] Too Many API Requests and No Retry-After Header, \
-                        waiting 30s before continuing" % (time.time()-start_time)
-                time.sleep(30.0 - (time.time() - start_time) % 30.0)
-                continue
         else:
             raise Exception(e)
 
