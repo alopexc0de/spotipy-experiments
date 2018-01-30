@@ -4,7 +4,7 @@ This is a collection of experimentations with the Spotipy python library.
 All of these scripts will request an auth token for a particular user (username arg) upon startup
 From my experimentation so far, this will remmeber that the app was previously authorized for whatever "authorization scope" was approved by the user at the oauth screen
 
-save_now_playing.py - This script will poll for the user's now playing track every minute and update a text file.
+save_now_playing.py - This script will poll for the user's now playing track every 10s and update a text file
 get_user_auth.py - "Hello World" from the docs, this shows how to authorize using env
 show_all_playlist.py - Unlike the name suggests, I did not see all my playlists. This could be an auth scope issue however
 
