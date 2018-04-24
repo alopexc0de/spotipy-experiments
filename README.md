@@ -1,4 +1,4 @@
-#Spotify API Experiments
+# Spotify API Experiments
 
 This is a collection of experimentations with the Spotipy python library.
 All of these scripts will request an auth token for a particular user (username arg) upon startup
@@ -8,7 +8,7 @@ save_now_playing.py - This script will poll for the user's now playing track eve
 get_user_auth.py - "Hello World" from the docs, this shows how to authorize using env
 show_all_playlist.py - Unlike the name suggests, I did not see all my playlists. This could be an auth scope issue however
 
-To get started:
+## To get started:
 * Create an app on Spotify's Developer console - https://beta.developer.spotify.com
 * Clone this repository
 * Ensure that you have "python-pip", and "python-virtualenv" installed
@@ -18,7 +18,7 @@ To get started:
 * Run `pip install -r requirements.txt` to install the required dependencies
 * Run any of the scripts to use them
 
-License: MIT
+## License: MIT
 Copyright (c) 2014 Paul Lamere - https://github.com/plamere/spotipy
 Copyright (c) 2018 c0de <c0defox.es, gama.io>
 
