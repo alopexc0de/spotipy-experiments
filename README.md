@@ -17,6 +17,7 @@ show_all_playlist.py - Unlike the name suggests, I did not see all my playlists.
 * Configure your environment by running `set_env.sh`
 * Run `pip install -r requirements.txt` to install the required dependencies
 * Optionally `git clone https://github.com/alopexc0de/spotipy.git` into venv/lib/python2.7/site-packages/ (replacing the pip-installed spotipy)
+    * If using c0de's spotipy, include a port higher than 1024 inside `SPOTIPY_REDIRECT_URI`. For example: "http://localhost:8000/"
 * Run any of the scripts to use them
 
 ## License: MIT
