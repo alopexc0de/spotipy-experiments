@@ -10,6 +10,7 @@
 
 import sys
 import time
+
 import spotipy
 import spotipy.util as util
 from spotipy.client import SpotifyException
@@ -42,10 +43,15 @@ def authorize_api(username, scope=None):
 
     print "[%.2fs] Authorizing %s with this auth scope: %s" % \
             (time.time()-start_time, username, scope)
-    # User Auth-Token - Achieved by running a webserver on localhost (might not be needed) as we just paste the URL here
+
     # The access token appears to expire around 2000ish seconds of use. 
     # Rerunning this and retrieving the callback url (with new token) will allow the script to continue
-    token = util.prompt_for_user_token(username, scope)
+    
+    # Use HttpSimpleServer based auth if available (using c0de's spotipy for example)
+    if hasattr(util, 'obtain_token_localhost'):
+        token = util.obtain_token_localhost(username, scope)
+    else:
+        token = util.prompt_for_user_token(username, scope)
 
     if token:
         # Authorize with the API

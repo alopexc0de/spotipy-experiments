@@ -16,6 +16,7 @@ show_all_playlist.py - Unlike the name suggests, I did not see all my playlists.
 * Edit "set_env.sh" to configure your API ID, Secret, and redirect using the information from your previously created app
 * Configure your environment by running `set_env.sh`
 * Run `pip install -r requirements.txt` to install the required dependencies
+* Optionally `git clone https://github.com/alopexc0de/spotipy.git` into venv/lib/python2.7/site-packages/ (replacing the pip-installed spotipy)
 * Run any of the scripts to use them
 
 ## License: MIT
