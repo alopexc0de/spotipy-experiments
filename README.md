@@ -1,12 +1,18 @@
 # Spotify API Experiments
 
 This is a collection of experimentations with the Spotipy python library.
-All of these scripts will request an auth token for a particular user (username arg) upon startup
-From my experimentation so far, this will remmeber that the app was previously authorized for whatever "authorization scope" was approved by the user at the oauth screen
+
+All of these scripts will request an auth token for a particular user (username arg) upon startup. When this is triggered, the browser (on the machine the script is running on) will open with a spotify login/approval screen. If the user does not authorize the app, the script will die with a traceback.
+There is an option to change the auth-type to "Client Credentials Manager" mode, where only non-user API endpoints may be accessed. This is accomplished by simply not providing any arguments to `spotipy.util.authorize_api()` if the id and secret are configured inside `set_env.sh`.
+
+From my experimentation so far, this will remember that the app was previously authorized for whatever "authorization scope" was approved by the user at the oauth screen. If a new auth-scope is presented, the
+user will be prompted to authorize the application again and mark the "new" requested permissions.
 
 save_now_playing.py - This script will poll for the user's now playing track every 10s and update a text file
 get_user_auth.py - "Hello World" from the docs, this shows how to authorize using env
-show_all_playlist.py - Unlike the name suggests, I did not see all my playlists. This could be an auth scope issue however
+save_all_playlist.py - This script will pull all of the user's playlists into .json files. This currently exports                        too much data to be usable by anything yet
+top_tracks.py - This will save the user's top 20 tracks to a .json file. This currently exports too much data
+                        to be usable by anything yet
 
 ## To get started:
 * Create an app on Spotify's Developer console - https://beta.developer.spotify.com
