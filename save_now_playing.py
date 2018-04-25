@@ -25,12 +25,9 @@ else:
     sys.exit()
 
 def get_now_playing(sp):
-    # This should be sp.currently_playing(), but somehow does not work...
-    # So I used its return: https://github.com/plamere/spotipy/blob/master/spotipy/client.py#L899
-
     try:
         # Get the currently playing track and artist
-        np = sp._get("me/player/currently-playing", market=None)
+        np = sp.currently_playing()
         # Take a look at the other goodies that gets returned here for future stuff
         return "%s by: %s" % (np['item']['name'], np['item']['artists'][0]['name'])
     except TypeError:
