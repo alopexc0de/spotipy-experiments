@@ -33,32 +33,9 @@ def get_now_playing(sp):
     except TypeError:
         return "Nothing is playing"
 
-def authorize_api(username, scope=None):
-    if not scope:
-        # Authorization Scope, can possibly be a dict?
-        scope = 'user-read-currently-playing'
-
-    print "[%.2fs] Authorizing %s with this auth scope: %s" % \
-            (time.time()-start_time, username, scope)
-
-    # The access token appears to expire around 2000ish seconds of use. 
-    # Rerunning this and retrieving the callback url (with new token) will allow the script to continue
-    
-    # Use HttpSimpleServer based auth if available (using c0de's spotipy for example)
-    if hasattr(util, 'obtain_token_localhost'):
-        token = util.obtain_token_localhost(username, scope)
-    else:
-        token = util.prompt_for_user_token(username, scope)
-
-    if token:
-        # Authorize with the API
-        return spotipy.Spotify(auth=token)
-    else:
-        print "[%.2fs] Unable to authorize %s - Did they approve the oauth login?" % \
-                (time.time()-start_time, username)
-        sys.exit()
-
-sp = authorize_api(username)
+# Authorization Scope, can possibly be a dict?
+scope = 'user-read-currently-playing'
+sp = util.authorize_api(username, scope, 'server')
 
 # Main loop
 while True:
@@ -69,7 +46,7 @@ while True:
             print "[%.2fs] Access Token for %s Expired, reaquiring..." % \
                     (time.time()-start_time, username)
             # Reauth and get the next now playing
-            sp = authorize_api(username)
+            sp = util.authorize_api(username, scope, 'server')
             continue
         else:
             raise Exception(e)
