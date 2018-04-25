@@ -13,7 +13,7 @@ import time
 
 import spotipy
 import spotipy.util as util
-from spotipy.client import SpotifyException
+from spotipy.exceptions import SpotifyException
 
 start_time = time.time()
 
