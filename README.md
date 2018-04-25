@@ -8,11 +8,10 @@ There is an option to change the auth-type to "Client Credentials Manager" mode,
 From my experimentation so far, this will remember that the app was previously authorized for whatever "authorization scope" was approved by the user at the oauth screen. If a new auth-scope is presented, the
 user will be prompted to authorize the application again and mark the "new" requested permissions.
 
-save_now_playing.py - This script will poll for the user's now playing track every 10s and update a text file
-get_user_auth.py - "Hello World" from the docs, this shows how to authorize using env
-save_all_playlist.py - This script will pull all of the user's playlists into .json files. This currently exports                        too much data to be usable by anything yet
-top_tracks.py - This will save the user's top 20 tracks to a .json file. This currently exports too much data
-                        to be usable by anything yet
+1. save_now_playing.py - This script will poll for the user's now playing track every 10s and update a text file
+2. get_user_auth.py - "Hello World" from the docs, this shows how to authorize using env
+3. save_all_playlist.py - This script will pull all of the user's playlists into .json files. This currently exports too much data to be usable by anything yet
+4. top_tracks.py - This will save the user's top 20 tracks to a .json file. This currently exports too much data to be usable by anything yet
 
 ## To get started:
 * Create an app on Spotify's Developer console - https://beta.developer.spotify.com
